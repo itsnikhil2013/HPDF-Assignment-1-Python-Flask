@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="utf-8">
+            <title>Author's Catalog</title>
+    </head>
+    <body>
+
+      <b>Details of authors and their posts are : </b><br>
+      {% for author in authors %}
+       {% set count = [0] %}
+        {% for post in posts %}
+          {% if post.userId == author.id %}
+            {% if count.append(count.pop() + 1) %}{% endif %}
+          {% endif %}
+        {% endfor %}
+      <br>The {{author.name}} has total {{count}} posts.
+      {% endfor %}
+
+
+    </body>
+</html>
